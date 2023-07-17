@@ -1,10 +1,10 @@
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-const Note = ({ id, title, text, date }) => {
+const Note = ({ id, title, text, date, handleDeleteNote }) => {
   return (
     <div className="note">
       <div className="note-heading">
-        <h1>{title}</h1>
+        <h2>{title}</h2>
       </div>
       <div className="note-body">
         <p>{text}</p>
@@ -14,7 +14,10 @@ const Note = ({ id, title, text, date }) => {
           <p>{date}</p>
         </div>
         <div className="note-fnc-btn">
-          <DeleteForeverIcon className="delete-icon" />
+          <DeleteForeverIcon
+            className="delete-icon"
+            onClick={() => handleDeleteNote(id)}
+          />
         </div>
       </div>
     </div>

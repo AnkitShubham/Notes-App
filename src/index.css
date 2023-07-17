@@ -1,6 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Oxygen', sans-serif;
+}
+
+body{
+    background-color: #cae9ff;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dark-mode{
+    background-color: #252422;
+    color: #eff7f6;
+}
+
+.dark-mode::placeholder{
+    color: #eff7f6;
 }
 
 .wrapper{
@@ -8,6 +30,7 @@
     margin-right: auto;
     margin-left: auto;
     padding: 10px;
+    min-height: 100vh;
 }
 
 .notes-list{
@@ -17,23 +40,37 @@
 }
 
 .note{
-    background-color: #ffb703;
+    /* background-color: #f2bb05; */
+    background-color: #7D95FF;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 10px;
     padding: 10px;
     min-height: 170px;
+    white-space: pre-wrap;
 }
 
 .add{
-    background-color: #00bbf9;
+    /* background-color: #9d4edd; */
+    background-color: #c77dff;
+}
+
+.title{
+    border: none;
+    background-color: #c77dff;
+    height: 30px;
+    font-size: 20px;
+}
+
+.title:focus{
+    outline: none;
 }
 
 textarea{
     border: none;
     resize: none;
-    background-color: #00bbf9;
+    background-color: #c77dff;
 }
 
 textarea:focus{
@@ -49,4 +86,38 @@ textarea:focus{
 
 .add-icon{
     cursor: pointer;
+}
+
+.delete-icon{
+    cursor: pointer;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    background-color: #dad7cd;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.search input{
+    border: none;
+    background-color: #dad7cd;
+    width: 100%;
+}
+
+.search input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: #252422;
+}
+
+.theme-button{
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
 }

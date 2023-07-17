@@ -3,25 +3,43 @@ import { useState } from "react";
 
 const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoteText] = useState("");
+  const [noteTitle, setNoteTitle] = useState("");
+  const characterLimit = 200;
 
-  const handleChange = (event) => {
-    setNoteText(event.target.value);
+  const handleNoteChange = (event) => {
+    if (characterLimit - event.target.value.length >= 0) {
+      setNoteText(event.target.value);
+    }
+  };
+  const handleTitleChange = (event) => {
+    setNoteTitle(event.target.value);
   };
   const handleSaveNote = () => {
-    handleAddNote(noteText);
+    if (noteText.trim().length > 0) {
+      handleAddNote(noteText, noteTitle);
+      setNoteText("");
+      setNoteTitle("");
+    }
   };
 
   return (
     <div className="note add">
+      <input
+        type="text"
+        className="title"
+        placeholder="Title"
+        value={noteTitle}
+        onChange={handleTitleChange}
+      />
       <textarea
         rows="8"
         column="10"
-        placeholder="Type the text..."
+        placeholder="Note"
         value={noteText}
-        onChange={handleChange}
+        onChange={handleNoteChange}
       ></textarea>
       <div className="note-footer">
-        <small>200 remaining</small>
+        <small>{characterLimit - noteText.length} remaining</small>
         <AddCircleIcon
           className="add-icon"
           fontSize="large"
